@@ -7,7 +7,6 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"log"
-	"os"
 	"strings"
 )
 
@@ -27,7 +26,7 @@ func main() {
 		return c.SendStatus(404)
 	})
 
-	port := os.Getenv("PORT")
+	port := config.Config("PORT")
 
 	err := app.Listen(":" + port)
 	if err != nil {
